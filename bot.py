@@ -1,9 +1,9 @@
 import os
-import random
 import asyncio
 import discord
 from discord.ext import commands
-from discord import app_commands
+from discord.ui import Button, View, Select
+from typing import Optional
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -22,21 +22,18 @@ class MyBot(commands.Bot):
             activity=discord.Game(name="Starting up...")
         )
 
-        # Presence animation states
         self.presence_messages = [
             discord.Activity(type=discord.ActivityType.watching, name="your commands"),
-            discord.Activity(type=discord.ActivityType.listening, name="/help"),
+            discord.Activity(type=discord.ActivityType.listening, name="!help"),
             discord.Activity(type=discord.ActivityType.playing, name="with the API"),
             discord.Activity(type=discord.ActivityType.competing, name="in coding challenges")
         ]
         self.current_presence = 0
 
     async def setup_hook(self):
-        """Initialize bot setup"""
         await self.load_cogs()
         self.loop.create_task(self.animate_presence())
         
-        # Sync slash commands (optional)
         try:
             synced = await self.tree.sync()
             print(f"Synced {len(synced)} slash commands")
@@ -44,7 +41,6 @@ class MyBot(commands.Bot):
             print(f"Error syncing slash commands: {e}")
 
     async def load_cogs(self):
-        """Load all cogs from the cogs directory"""
         for filename in os.listdir('./cogs'):
             if filename.endswith('.py') and not filename.startswith('_'):
                 cog_name = f'cogs.{filename[:-3]}'
@@ -55,15 +51,12 @@ class MyBot(commands.Bot):
                     print(f'Failed to load cog {cog_name}: {e}')
 
     async def animate_presence(self):
-        """Cycle through different presence statuses"""
         await self.wait_until_ready()
-        
         while not self.is_closed():
             presence = self.presence_messages[self.current_presence]
             await self.change_presence(activity=presence)
-            
             self.current_presence = (self.current_presence + 1) % len(self.presence_messages)
-            await asyncio.sleep(30)  # Change every 30 seconds
+            await asyncio.sleep(30)
 
     async def on_ready(self):
         print(f'Logged in as {self.user} (ID: {self.user.id})')
@@ -72,8 +65,8 @@ class MyBot(commands.Bot):
 bot = MyBot()
 
 @bot.command(name='help')
-async def custom_help(ctx, *, command=None):
-    """Advanced help command with rich embeds"""
+async def help_command(ctx, *, command: Optional[str] = None):
+    """Shows help information"""
     if command:
         # Show help for specific command
         cmd = bot.get_command(command.lower())
@@ -101,7 +94,7 @@ async def custom_help(ctx, *, command=None):
     # Main help menu
     embed = discord.Embed(
         title="Bot Help Menu",
-        description="Here are all the available command categories. Use `!help <command>` for more info on a specific command.",
+        description="Here are all the available command categories. Use `!help <command>` for more info.",
         color=discord.Color.blue()
     )
     
@@ -134,11 +127,32 @@ async def custom_help(ctx, *, command=None):
         icon_url=ctx.author.avatar.url
     )
     
-    await ctx.send(embed=embed)
+    # Add interactive buttons
+    view = View()
+    
+    # Button for command list
+    button = Button(label="Show All Commands", style=discord.ButtonStyle.blurple)
+    async def button_callback(interaction):
+        all_commands = []
+        for cmd in bot.commands:
+            if not cmd.hidden:
+                all_commands.append(f"`!{cmd.name}` - {cmd.short_doc or 'No description'}")
+        
+        commands_embed = discord.Embed(
+            title="All Commands",
+            description="\n".join(all_commands)[:2000],
+            color=discord.Color.green()
+        )
+        await interaction.response.send_message(embed=commands_embed, ephemeral=True)
+    
+    button.callback = button_callback
+    view.add_item(button)
+    
+    await ctx.send(embed=embed, view=view)
 
 @bot.event
 async def on_command_error(ctx, error):
-    """Enhanced error handling with rich embeds"""
+    """Error handler"""
     if isinstance(error, commands.CommandNotFound):
         embed = discord.Embed(
             title="Command Not Found",
@@ -166,20 +180,11 @@ async def on_command_error(ctx, error):
             color=discord.Color.red()
         )
         await ctx.send(embed=embed)
-        raise error  # Still log the error to console
+        raise error
 
-# Run the bot
-try:
+if __name__ == "__main__":
     bot_token = os.getenv('DISCORD_TOKEN')
     if not bot_token:
         print("No DISCORD_TOKEN found in .env file")
     else:
         bot.run(bot_token)
-except discord.LoginFailure:
-    print("Invalid Discord token. Please check your .env file")
-except Exception as e:
-    print(f"Fatal error: {e}")
-
-    # Add this at the end of bot.py
-if __name__ == "__main__":
-    bot.run(os.getenv("DISCORD_TOKEN"))
