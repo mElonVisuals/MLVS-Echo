@@ -1,0 +1,106 @@
+2025-05-07 01:32:17,441 - discord.client - INFO - logging in using static token
+2025-05-07 01:32:18,154 - __main__ - INFO - Successfully loaded cog: cogs.error_handler
+2025-05-07 01:32:18,155 - __main__ - INFO - Successfully loaded cog: cogs.events
+2025-05-07 01:32:18,155 - __main__ - INFO - Successfully loaded cog: cogs.fun
+2025-05-07 01:32:18,156 - __main__ - INFO - Successfully loaded cog: cogs.general
+2025-05-07 01:32:18,157 - __main__ - INFO - Successfully loaded cog: cogs.moderation
+2025-05-07 01:32:18,306 - __main__ - INFO - Successfully loaded cog: cogs.music
+2025-05-07 01:32:18,991 - discord.gateway - INFO - Shard ID None has connected to Gateway (Session ID: 7a326ddc4a19b970b2bd70fb0df11f62).
+2025-05-07 01:32:21,008 - __main__ - INFO - Logged in as MLVS Echo#0593 (ID: 1369361979424116957)
+2025-05-07 01:32:21,008 - __main__ - INFO - ------
+2025-05-07 01:32:34,097 - discord.client - ERROR - Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Python312\Lib\site-packages\discord\client.py", line 481, in _run_event
+    await coro(*args, **kwargs)
+  File "F:\MLVS Echo\cogs\events.py", line 26, in on_message
+    if not message.content.startswith(self.bot.command_prefix):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: startswith first arg must be str or a tuple of str, not function
+2025-05-07 01:32:38,604 - discord.client - ERROR - Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Python312\Lib\site-packages\discord\client.py", line 481, in _run_event
+    await coro(*args, **kwargs)
+  File "F:\MLVS Echo\cogs\events.py", line 26, in on_message
+    if not message.content.startswith(self.bot.command_prefix):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: startswith first arg must be str or a tuple of str, not function
+2025-05-07 01:32:45,334 - discord.client - ERROR - Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Python312\Lib\site-packages\discord\client.py", line 481, in _run_event
+    await coro(*args, **kwargs)
+  File "F:\MLVS Echo\cogs\events.py", line 26, in on_message
+    if not message.content.startswith(self.bot.command_prefix):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: startswith first arg must be str or a tuple of str, not function
+2025-05-07 01:32:49,403 - discord.client - ERROR - Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Python312\Lib\site-packages\discord\client.py", line 481, in _run_event
+    await coro(*args, **kwargs)
+  File "F:\MLVS Echo\cogs\events.py", line 26, in on_message
+    if not message.content.startswith(self.bot.command_prefix):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: startswith first arg must be str or a tuple of str, not function
+2025-05-07 01:33:04,448 - discord.client - ERROR - Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Python312\Lib\site-packages\discord\client.py", line 481, in _run_event
+    await coro(*args, **kwargs)
+  File "F:\MLVS Echo\cogs\events.py", line 26, in on_message
+    if not message.content.startswith(self.bot.command_prefix):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: startswith first arg must be str or a tuple of str, not function
+2025-05-07 01:33:04,450 - discord.voice_state - INFO - Connecting to voice...
+2025-05-07 01:33:04,450 - discord.voice_state - INFO - Starting voice handshake... (connection attempt 1)
+2025-05-07 01:33:04,815 - discord.voice_state - INFO - Voice handshake complete. Endpoint found: c-ams15-0b2cbd8e.discord.media
+2025-05-07 01:33:05,446 - discord.voice_state - INFO - Voice connection complete.
+2025-05-07 01:33:31,934 - discord.client - ERROR - Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Python312\Lib\site-packages\discord\client.py", line 481, in _run_event
+    await coro(*args, **kwargs)
+  File "F:\MLVS Echo\cogs\events.py", line 26, in on_message
+    if not message.content.startswith(self.bot.command_prefix):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: startswith first arg must be str or a tuple of str, not function
+2025-05-07 01:33:39,805 - __main__ - ERROR - Error in command play: Command raised an exception: ClientException: ffmpeg was not found.
+NoneType: None
+2025-05-07 01:34:26,828 - discord.voice_state - INFO - The voice handshake is being terminated for Channel ID 1365071345406447638 (Guild ID 1358986927893778545)
+2025-05-07 01:35:57,256 - discord.client - INFO - logging in using static token
+2025-05-07 01:35:58,122 - __main__ - INFO - Successfully loaded cog: cogs.error_handler
+2025-05-07 01:35:58,123 - __main__ - INFO - Successfully loaded cog: cogs.events
+2025-05-07 01:35:58,124 - __main__ - INFO - Successfully loaded cog: cogs.fun
+2025-05-07 01:35:58,124 - __main__ - INFO - Successfully loaded cog: cogs.general
+2025-05-07 01:35:58,125 - __main__ - INFO - Successfully loaded cog: cogs.moderation
+2025-05-07 01:35:58,272 - __main__ - INFO - Successfully loaded cog: cogs.music
+2025-05-07 01:35:58,791 - discord.gateway - INFO - Shard ID None has connected to Gateway (Session ID: 1c0a6a300dc358f30779c7cf35483cdd).
+2025-05-07 01:36:00,799 - __main__ - INFO - Logged in as MLVS Echo#0593 (ID: 1369361979424116957)
+2025-05-07 01:36:00,799 - __main__ - INFO - ------
+2025-05-07 01:36:04,864 - discord.client - ERROR - Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Python312\Lib\site-packages\discord\client.py", line 481, in _run_event
+    await coro(*args, **kwargs)
+  File "F:\MLVS Echo\cogs\events.py", line 26, in on_message
+    if not message.content.startswith(self.bot.command_prefix):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: startswith first arg must be str or a tuple of str, not function
+2025-05-07 01:36:04,865 - discord.voice_state - INFO - Connecting to voice...
+2025-05-07 01:36:04,865 - discord.voice_state - INFO - Starting voice handshake... (connection attempt 1)
+2025-05-07 01:36:05,179 - discord.voice_state - INFO - Voice handshake complete. Endpoint found: c-ams15-0b2cbd8e.discord.media
+2025-05-07 01:36:05,637 - discord.voice_state - INFO - Voice connection complete.
+2025-05-07 01:36:21,055 - discord.client - ERROR - Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Python312\Lib\site-packages\discord\client.py", line 481, in _run_event
+    await coro(*args, **kwargs)
+  File "F:\MLVS Echo\cogs\events.py", line 26, in on_message
+    if not message.content.startswith(self.bot.command_prefix):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: startswith first arg must be str or a tuple of str, not function
+2025-05-07 01:36:25,189 - __main__ - ERROR - Error in command play: Command raised an exception: ClientException: ffmpeg was not found.
+NoneType: None
+2025-05-07 01:36:36,400 - discord.voice_state - INFO - The voice handshake is being terminated for Channel ID 1365071345406447638 (Guild ID 1358986927893778545)
+2025-05-07 01:36:36,400 - discord.client - ERROR - Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Python312\Lib\site-packages\discord\client.py", line 481, in _run_event
+    await coro(*args, **kwargs)
+  File "F:\MLVS Echo\cogs\events.py", line 26, in on_message
+    if not message.content.startswith(self.bot.command_prefix):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: startswith first arg must be str or a tuple of str, not function
